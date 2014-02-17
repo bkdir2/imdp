@@ -1,10 +1,22 @@
 Imdp::Application.routes.draw do
   get "users/new"
+  match "/signup", to: "users#new", via: "get"
+  
   get "users/show"
-  get "static_pages/help"
-  get "static_pages/about"
-  get "static_pages/home"
-  get "static_pages/contact"
+  
+  # get "static_pages/help" yerine bunu yazinca
+  # help_path ver help_url i elde etmis oluyorsun. 
+  match "/help", to: "static_pages#help", via: "get"
+
+  match "/about", to: "static_pages#about", via: "get"
+  match "/contact", to: "static_pages#contact", via: "get"
+
+  # bu da home page icin named rout alma yolu ama 
+  # zaten root "static_page#home" oldugu icin bu satira
+  # ihtiyacimiz yok.
+  # match "/", to: "static_pages#home", via: "get"
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

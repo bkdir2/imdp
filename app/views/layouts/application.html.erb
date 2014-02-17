@@ -2,33 +2,15 @@
 <html>
 <head>
   <title><%= set_title(yield(:title)) %></title>
-  <%= stylesheet_link_tag    "application", media: "all", 
-                                            "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+ <%= render "layouts/includes" %>
 </head>
 <body>
-<% #tepeyi siyah yapti, linklerin yanyana durmasni sagladi %>
-<header class="navbar navbar-fixed-top navbar-inverse">
-	<% #siyah yapti nav bari %>
-	<div class="navbar-inner">
-		<% #container ortada toplanmasini sagladi %>
-		<div class="container">
-			<%= link_to "IMDP", "#", id: "logo" %>
-			<nav>
-				<ul class="nav pull-right">
-				  <li><%= link_to "Home", "#" %></li>
-				  <li><%= link_to "About Us", "#" %></li>
-				  <li><%= link_to "Sign in", "#" %></li>
-			  </ul>
-			</nav>
-		</div>
-	</div>
-</header>
+<%= render "layouts/header" %>
 
-<% #tum icerigi ortaya cekti bu class %>
+<% #tum icerigi ortaya cekti container classi %>
 <div class="container">
 	<%= yield %>
+	<%= render "layouts/footer" %>
 </div>
 
 </body>
