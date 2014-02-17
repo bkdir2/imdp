@@ -6,6 +6,7 @@ class StaticPagesController < ApplicationController
   end
 
   def home
+  	puts "Home action"
   end
 
   def contact
