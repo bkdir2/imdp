@@ -1,17 +1,22 @@
 class User < ActiveRecord::Base
-	#attr_accessible :name, :email
+	before_save {self.email.downcase!}
 
-=begin
-def initialize (attributes = {})
+	validates :name, presence: true, length: {maximum: 50}
 
-		@name = attributes[:name]
-		@email = attributes[:email]
-end
-=end
+	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
+	validates :email, presence:true, format: {with: VALID_EMAIL_REGEX },
+					  uniqueness: {case_sensitive: false}
 	
-	def self.inspect
-		"User name is: #{@name} E-mail address: <#{@email}>"
-	end
+	# Presence validations for the password and its confirmation 
+	# are automatically added by has_secure_password.
+	validates :password, length: {minimum: 6}					  
 
+	# adding password an password_confirmation attributes,
+	# requiring the presence of the password, requiring that 
+	# they matched,
+	# authenticate method to compare the pw with password_digest
+	# are made by "has_secure_password"
+	# as long as there is a password_digest column in the database
+	has_secure_password				  
 end
