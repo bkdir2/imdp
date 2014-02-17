@@ -1,18 +1,11 @@
-<% provide(:title, "Show Users") %>
-<h1>Sho all Users</h1>
-<% if !@users.nil? %>
-	<table>
-		<thead>
-			<th>Name</th>
-		</thead>
-		<tbody>
-			<% @users.each do |user|%>
-				<tr>
-					<td><%= user.name %></td>
-				</tr>
-			<% end %>		
-		</tbody>
-	</table>
-<% else %>
-There is no user!
-<% end %>
+<% provide(:title, @user.name) %>
+<div class="">
+  <aside class="">
+    <section>
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+</div>

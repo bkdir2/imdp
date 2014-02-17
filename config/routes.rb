@@ -1,13 +1,12 @@
 Imdp::Application.routes.draw do
-  get "users/new"
-  match "/signup", to: "users#new", via: "get"
   
-  get "users/show"
+  resources :users
+  
+  match "/signup", to: "users#new", via: "get"
   
   # get "static_pages/help" yerine bunu yazinca
   # help_path ver help_url i elde etmis oluyorsun. 
   match "/help", to: "static_pages#help", via: "get"
-
   match "/about", to: "static_pages#about", via: "get"
   match "/contact", to: "static_pages#contact", via: "get"
 
