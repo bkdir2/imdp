@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Imdp::Application.config.secret_key_base = '1edf3994b12f02a2c699ef060bcaebe459a7de738b2f5ea1880b1a4cd75f356595fb536062667bfaf7470670b941ec0a22ad8bb73225fc68a6a2a4ddcf676ef0'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Imdp::Application.config.secret_key_base = secure_token
