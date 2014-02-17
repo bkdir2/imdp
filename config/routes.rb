@@ -1,5 +1,6 @@
 Imdp::Application.routes.draw do
   get "users/new"
+  get "users/show"
   get "static_pages/help"
   get "static_pages/about"
   get "static_pages/home"

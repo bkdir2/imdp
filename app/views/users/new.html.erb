@@ -1,14 +1,3 @@
-<html>
-<head>
-	<title>New User</title>
-</head>
-<body>
-	<h1>IMDP</h1>
-	<h2>New user</h2>
-	<% if !@users.nil? %>
-		<% @users.each do |user|%>
-			<%= user.name %>
-		<% end %>
-	<% end %>
-</body>
-</html>
+<% provide(:title, "Create User") %>
+<h1>IMDP</h1>
+<h2>New user</h2>

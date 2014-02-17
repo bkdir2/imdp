@@ -1,3 +1,10 @@
 <% provide(:title, "Home") %>
-<h1>IMDP</h1>
-<h2>Home Page</h2>
+
+<% # bu clas sayesinde yazilar altinda kalmadi headerin %>
+<div class="center hero-unit"> 
+<h2>IMDP Home Page</h2>
+
+<% # linki buton gibi gosterdi bu class. %>
+<%= link_to "Sign Up!", "users/new", class: "btn btn-large btn-primary" %>
+</div>
+<%= link_to image_tag("bkdir.jpg", alt: "IMDP"), "#" %>

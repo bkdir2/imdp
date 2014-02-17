@@ -1,0 +1,18 @@
+<% provide(:title, "Show Users") %>
+<h1>Sho all Users</h1>
+<% if !@users.nil? %>
+	<table>
+		<thead>
+			<th>Name</th>
+		</thead>
+		<tbody>
+			<% @users.each do |user|%>
+				<tr>
+					<td><%= user.name %></td>
+				</tr>
+			<% end %>		
+		</tbody>
+	</table>
+<% else %>
+There is no user!
+<% end %>

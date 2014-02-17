@@ -8,8 +8,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% #tepeyi siyah yapti, linklerin yanyana durmasni sagladi %>
+<header class="navbar navbar-fixed-top navbar-inverse">
+	<% #siyah yapti nav bari %>
+	<div class="navbar-inner">
+		<% #container ortada toplanmasini sagladi %>
+		<div class="container">
+			<%= link_to "IMDP", "#", id: "logo" %>
+			<nav>
+				<ul class="nav pull-right">
+				  <li><%= link_to "Home", "#" %></li>
+				  <li><%= link_to "About Us", "#" %></li>
+				  <li><%= link_to "Sign in", "#" %></li>
+			  </ul>
+			</nav>
+		</div>
+	</div>
+</header>
 
-<%= yield %>
+<% #tum icerigi ortaya cekti bu class %>
+<div class="container">
+	<%= yield %>
+</div>
 
 </body>
 </html>
