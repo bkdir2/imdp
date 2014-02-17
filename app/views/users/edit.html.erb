@@ -1,0 +1,5 @@
+<% provide(:title, "Edit") %>
+<h2>User Edit Page</h2>
+<%= render "shared/error_messages" %>
+<%= render partial: "users/shared/form", object: @user,
+ 										 locals: {btn: "Edit"} %>
