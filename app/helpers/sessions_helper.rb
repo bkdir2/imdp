@@ -45,4 +45,16 @@ module SessionsHelper
 		!current_user.nil?
 	end
 
+	# login olmamis userlarin gitmek istedigi page i hafizada tut
+	# login olurlarsa sabit bir sayfaya gondermektense "intended"
+	# sayfalarina yonlendireceksin.
+	def intended_location
+		session[:return_to] = request.url if request.get?
+	end
+
+	def redirect_to_intended_location(default)
+		redirect_to(session[:return_to] || default)
+		session.delete(:return_to)
+	end
+
 end

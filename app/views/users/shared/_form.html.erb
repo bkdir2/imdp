@@ -18,5 +18,9 @@
 
 			<%= f.submit btn,  class: "btn btn-large" %>
 		<% end %>
+		<% if btn == "Update" %>
+			<%= gravatar_for(@user) %>
+			<a href="http://gravatar.com/emails">change</a>
+		<% end %>
 	</div>
 </div>
