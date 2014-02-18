@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(accessible_params)
 		if @user.save
+			sign_in(@user)
 			flash[:info] = "Successfully Registered"
 			redirect_to @user
 		else

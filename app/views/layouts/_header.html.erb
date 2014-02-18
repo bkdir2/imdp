@@ -1,15 +1,22 @@
-<% #tepeyi siyah yapti, linklerin yanyana durmasni sagladi %>
-<header class="navbar navbar-fixed-top navbar-inverse">
-	<% #siyah yapti nav bari %>
+<!-- tepeyi siyah yapti, linklerin yanyana durmasni sagladi -->
+<header class="navbar navbar-fixed-top navbar-inverse">	
+	<!-- siyah yapti nav bari -->
 	<div class="navbar-inner">
-		<% #container ortada toplanmasini sagladi %>
+		<!-- container ortada toplanmasini sagladi -->
 		<div class="container">
 			<%= link_to "IMDP", root_path, id: "logo" %>
 			<nav>
 				<ul class="nav pull-right">
+					<!-- Bu Home linki adam signed_in olduysa baska yere gitmeli gibi. -->
 				  <li><%= link_to "Home", root_path %></li>
 				  <li><%= link_to "Help", help_path %></li>
-				  <li><%= link_to "Sign in", "#" %></li>
+				  <% if signed_in? %>
+				  	<li><%= link_to "Users", users_path %></li>
+						<li><%= link_to "Profile", current_user %></li>
+				  	<li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+				  <% else %>
+				  	<li><%= link_to "Sign in", signin_path %></li>
+				  <% end %>	
 			  </ul>
 			</nav>
 		</div>
