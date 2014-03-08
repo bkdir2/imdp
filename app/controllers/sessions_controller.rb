@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 			#iceri al
 			sign_in(user)
 			flash[:info] = "Welcome..." << user.name
-			redirect_to user
+			redirect_to_intended_location user
 		else
 			# flash.now specific for render
 			# flash is for redirect

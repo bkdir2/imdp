@@ -9,8 +9,8 @@ class UsersController < ApplicationController
 	# mesela john, marry nin profil bilgilerini editleyemez
 	before_action :correct_user, only: [:edit, :update]
 
-	def index
-		@users = User.all
+  def index
+		@users = User.paginate(page: params[:page])
   end
 
   def show
@@ -67,8 +67,10 @@ class UsersController < ApplicationController
 	# diye buraya gelicez, eger olmamissa signin sayfasina redirect 
 	# edicez ama oncesinde kullanici nereye gitmek istemis? onu tutuyoruz.
 	def signed_in_user
-		store_location
-		redirect_to signin_url, notice: "Please Sign in" if !signed_in?
+		if !signed_in?
+			intended_location
+			redirect_to signin_url, notice: "Please Sign in"
+		end
 	end
 
 	# signin oldum, infomu update edicem. eyw. ama eger baskasinin infosunu

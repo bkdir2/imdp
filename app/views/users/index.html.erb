@@ -1,9 +1,12 @@
 <% provide(:title, "Show All Users") %>
 <h1>Show all users</h1>
+
+<%= will_paginate %>
+
 <% if !@users.nil? %>
-	<table>
+	<table class="table">
 		<thead>
-			<th></th>
+			<th>#</th>
 			<th>Name</th>
 			<th>Email</th>
 		</thead>
@@ -20,3 +23,5 @@
 <% else %>
 There is no user!
 <% end %>
+
+<%= will_paginate %>
