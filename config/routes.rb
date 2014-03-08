@@ -9,6 +9,7 @@ Imdp::Application.routes.draw do
   match "/signout", to: "sessions#destroy", via: "delete"
   
   match "/signup", to: "users#new", via: "get"
+  match "/users", to: "users#index", via: "get"
   
   # get "static_pages/help" yerine bunu yazinca
   # help_path ver help_url i elde etmis oluyorsun. 
