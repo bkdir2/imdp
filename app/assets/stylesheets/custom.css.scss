@@ -68,7 +68,7 @@ p {
 }
 
 #logo:hover {
-  color: #faa;
+  color: #fbb;
   text-decoration: none;
 }
 
@@ -142,4 +142,26 @@ input {
 .field_with_errors {
   @extend .control-group;
   @extend .error;
+}
+
+/* Titles */
+.title {
+  font-weight:bold;
+  color: #0B4C5F;
+}
+.title:hover {
+  color: #0489B1;
+  text-decoration: none;
+}
+.timestamp{
+  font-size: .7em;
+  color: #999;
+}
+.content{
+  display: block;
+}
+.gravatar{
+  width: 40px;
+  height: 40px;
+ 
 }

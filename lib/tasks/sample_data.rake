@@ -1,4 +1,5 @@
 namespace :db do
+	
 	desc "Fill Database"
 	task populate: :environment do
 		User.create!(
@@ -18,4 +19,15 @@ namespace :db do
 		end 
 	end
 	
+	desc "Create Posts for each user"
+	task createposts: :environment do
+		users = User.all(limit: 6)
+		i = 1
+		15.times do
+			title = "Title for Example Posts - #{i}"
+			content = Faker::Lorem.paragraphs(2).to_s
+			users.each { |user| user.posts.create!(title: title, content: content) }
+			i = i + 1
+		end
+	end
 end

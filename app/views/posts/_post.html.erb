@@ -1,0 +1,14 @@
+<p>
+	<span class="title"><%= link_to post.title, "#", class: "title" %></span>
+</p>
+
+<p>
+	<span class="content"><%= post.content %></span>
+</p>	
+
+<span class="timestamp">
+		Created at: <%= time_ago_in_words(post.created_at) %>
+		Updated at: <%= time_ago_in_words(post.updated_at) %>
+</span>
+
+<%= content_tag :hr if @user.posts.count > 1 && post != @user.posts.last %>

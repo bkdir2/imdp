@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+	has_many :posts, dependent: :destroy
+	
 	before_save {self.email.downcase!}
 
 	#This code called a method reference
