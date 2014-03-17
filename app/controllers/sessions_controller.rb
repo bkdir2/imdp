@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
-	
+
+#comment to test git history SessionController
+
 	def new
 	end
 	
